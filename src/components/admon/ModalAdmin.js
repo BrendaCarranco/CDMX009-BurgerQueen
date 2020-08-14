@@ -60,8 +60,8 @@ const ModalAdmin = ({ user, setUser }) => {
             <div className='container'>
                 <a className="waves-effect waves-light btn modal-trigger add-btn add-text black-text" href="#modal1">Agregar</a>
                 <div >
-                    <div id="modal1" className="modal black">
-                        <div className="modal-content text-font">
+                    <div id="modal1" className="modal black modal-register-admin">
+                        <div className="modal-content text-font container">
                             <h4 className='white-text'>Registrar personal</h4>
                         </div>
                         <div className='container'>
@@ -100,7 +100,7 @@ const ModalAdmin = ({ user, setUser }) => {
                         <div className="modal-footer black register-btn">
                             <a
                                 href="#!"
-                                className="modal-close waves-effect waves-green btn-flat white-text center-align register-text"
+                                className="modal-close waves-effect waves-yellow btn-flat center-align register-text"
                                 onClick={submit}
                             >Registrar</a>
                         </div>

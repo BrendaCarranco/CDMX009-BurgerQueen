@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { firebase } from '../../../firebase/firebaseConfig';
+import { db } from '../../../firebase/firebaseConfig';
 import { toast } from 'react-toastify';
 import 'materialize-css/dist/css/materialize.min.css';
 import '../client-Info/clientInfo.css';
@@ -44,7 +44,7 @@ const ClientInfoForm = ({ data, setData }) => {
             return;
         }
         try {
-            const db = firebase.firestore();
+
             const newOrder = {
                 table: data.numeroMesa,
                 people: data.numeroComensales,

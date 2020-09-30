@@ -1,5 +1,5 @@
 import React, { useEffect, useState, Fragment } from 'react';
-import { firebase } from '../../firebase/firebaseConfig';
+import { db } from '../../firebase/firebaseConfig';
 import '../admon/admin.css';
 
 import ModalAdmin from './ModalAdmin';
@@ -12,7 +12,7 @@ const Admin = () => {
     useEffect(() => {
         const getUsers = async () => {
             try {
-                const data = await firebase.firestore().collection('users').get();
+                const data = await db.collection('users').get();
                 const arrayData = data.docs.map(doc => ({ id: doc.id, ...doc.data() }));
                 setUser(arrayData);
             } catch (error) {

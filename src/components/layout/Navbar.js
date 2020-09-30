@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { withRouter } from 'react-router-dom';
-import { firebase } from '../../firebase/firebaseConfig';
+import { auth } from '../../firebase/firebaseConfig';
 import 'firebase/auth';
 import './layout.css';
 
@@ -11,7 +11,7 @@ const Navbar = (props) => {
 
     const logOut = () => {
         console.log('saliendo...');
-        firebase.auth().signOut().then(function () {
+        auth.signOut().then(function () {
             props.history.push('/');
         }).catch(function (error) {
         });

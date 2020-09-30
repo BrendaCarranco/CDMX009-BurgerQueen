@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { firebase } from '../../../firebase/firebaseConfig';
+import { db } from '../../../firebase/firebaseConfig';
 import './order-finished.css';
 
 function OrderFinished({ orderFinished }) {
@@ -7,8 +7,7 @@ function OrderFinished({ orderFinished }) {
     const [paymentMethod, setPaymentMethod] = useState('');
 
     const sendOrderFinished = () => {
-        firebase
-            .firestore()
+        db
             .collection('orders')
             .doc(orderFinished.id)
             .update({

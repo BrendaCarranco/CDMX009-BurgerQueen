@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { firebase } from '../../../firebase/firebaseConfig';
+import { db } from '../../../firebase/firebaseConfig';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './btn-status.css';
@@ -9,8 +9,7 @@ function BtnStatus({ orderSelected }) {
     const updateDoc = async (e) => {
         e.preventDefault();
 
-        await firebase
-            .firestore()
+        await db
             .collection('orders')
             .doc(orderSelected.id)
             .update({

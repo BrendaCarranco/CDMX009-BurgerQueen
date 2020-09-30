@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import { firebase } from '../../../firebase/firebaseConfig';
+import { db } from '../../../firebase/firebaseConfig';
 import './all-orders.css';
 
 import Navbar from '../../layout/Navbar';
@@ -9,8 +9,7 @@ export function useAllOrder() {
     const [allOrder, setAllOrder] = useState([]);
 
     useEffect(() => {
-        firebase
-            .firestore()
+        db
             .collection('orders')
             .orderBy('date', 'desc')
             .limit(30)

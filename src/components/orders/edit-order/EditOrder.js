@@ -1,12 +1,12 @@
 import React, { Fragment, useState } from 'react';
-import { useBreakfast } from '../../dashboard/menuCards/BreakfastCards';
-import { useDinner } from '../../dashboard/menuCards/DinnerCards';
+/* import { useBreakfast } from '../../dashboard/menuCards/BreakfastCards';
+import { useDinner } from '../../dashboard/menuCards/DinnerCards'; */
+import menu from '../../../menu/menu';
 import './edit-order.css';
 
 function EditOrder({ orderSelected }) {
-
-    const desayunos = useBreakfast();
-    const dinner = useDinner();
+    const desayunos = menu.desayunos;
+    const dinner = menu.comidas;
 
     const [finalOrder, setFinalOrder] = useState({
         order: [],

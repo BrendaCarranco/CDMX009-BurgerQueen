@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { firebase } from './firebase/firebaseConfig';
+import { auth } from './firebase/firebaseConfig';
 import 'materialize-css/dist/css/materialize.min.css';
 
 import Dashboard from './components/dashboard/Dashboard.jsx';
@@ -13,7 +13,7 @@ import BurgerQueen from './components/BQ/BurgerQueen.jsx';
 function App() {
 
   useEffect(() => {
-    const unsuscribe = firebase.auth().onAuthStateChanged(user => {
+    const unsuscribe = auth.onAuthStateChanged(user => {
       return user;
     });
     return unsuscribe;

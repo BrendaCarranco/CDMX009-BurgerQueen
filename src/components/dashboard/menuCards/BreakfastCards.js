@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import menu from '../../../menu/menu';
 import './menuCards.css';
 
 export function useBreakfast() {
     const [breakfast, setBreakfast] = useState([]);
-
     useEffect(() => {
-        const breakfastMenuUrl = 'https://v2-api.sheety.co/08037a6e719e10abd51ee7fe17bba593/burgerQueenMenu/desayunos';
-        fetch(breakfastMenuUrl)
+        fetch(menu)
             .then(res => res.json())
             .then(data => {
+                //console.log(data);
                 setBreakfast(data.desayunos);
             });
     }, []
@@ -18,9 +18,7 @@ export function useBreakfast() {
 
 
 const BreakfastMenu = ({ addOrder }) => {
-
-    const breakfast = useBreakfast();
-
+    let breakfast = menu.desayunos;
     return (
 
         <div className='scroll-cards'>
@@ -35,7 +33,7 @@ const BreakfastMenu = ({ addOrder }) => {
                                 <div className='card-content white-text center-align'>
                                     <div>
                                         <p className='info' name='item'>{food.item}</p>
-                                        <p className='info' name='price'>$ {food.price}.00  </p>
+                                        <p className='info' name='price'>$ {food.price}</p>
                                     </div>
                                 </div>
                             </div>

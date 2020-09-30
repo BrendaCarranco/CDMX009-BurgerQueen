@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import menu from '../../../menu/menu';
 
 export const useDinner = () => {
     const [dinner, setDinner] = useState([]);
     useEffect(() => {
-        let dinnerMenuUrl = 'https://v2-api.sheety.co/08037a6e719e10abd51ee7fe17bba593/burgerQueenMenu/comidas';
+        let dinnerMenuUrl = 'https://api.sheety.co/8a96244f24eccc075711d9f26c56f9c6/burgerQueen/comidas';
         fetch(dinnerMenuUrl)
             .then(res => res.json())
             .then(data => {
@@ -15,7 +16,7 @@ export const useDinner = () => {
 };
 
 const DinnerCards = ({ addOrder }) => {
-    const dinner = useDinner();
+    let dinner = menu.comidas;
 
     return (
         <div className='scroll-cards'>

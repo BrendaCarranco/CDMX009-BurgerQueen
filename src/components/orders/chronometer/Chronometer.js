@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStopwatch } from 'react-timer-hook';
-import { firebase } from '../../../firebase/firebaseConfig';
+import { db } from '../../../firebase/firebaseConfig';
 import './chronometer.css';
 
 function Chronometer({ item }) {
@@ -15,8 +15,7 @@ function Chronometer({ item }) {
     const totalTime = async (minutes, seconds) => {
         const total = minutes + ':' + seconds + 'minutos';
 
-        await firebase
-            .firestore()
+        await db
             .collection('orders')
             .doc(item.id)
             .update({

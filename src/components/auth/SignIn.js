@@ -1,6 +1,6 @@
 import React, { useState, useCallback, Fragment } from 'react';
 import { withRouter } from 'react-router-dom';
-import { firebase } from '../../firebase/firebaseConfig';
+import { auth } from '../../firebase/firebaseConfig';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../auth/auth.css';
@@ -26,7 +26,7 @@ const SignIn = (props) => {
 
     const login = useCallback(async () => {
         try {
-            const res = await firebase.auth().signInWithEmailAndPassword(email, password);
+            const res = await auth.signInWithEmailAndPassword(email, password);
             console.log(res);
             props.history.push('/dashboard');
         } catch (error) {

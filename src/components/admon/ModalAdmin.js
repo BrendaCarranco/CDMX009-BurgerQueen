@@ -1,5 +1,5 @@
 import React, { useState, useCallback, Fragment } from 'react';
-import { firebase } from '../../firebase/firebaseConfig';
+import { auth, db } from '../../firebase/firebaseConfig';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './admin.css';
@@ -22,7 +22,7 @@ const ModalAdmin = ({ user, setUser }) => {
 
     const register = useCallback(async (e) => {
         try {
-            const res = await firebase.auth().createUserWithEmailAndPassword(newEmail, newPass);
+            const res = await auth.createUserWithEmailAndPassword(newEmail, newPass);
             console.log(res);
             const userInfo = {
                 email: res.user.email,
@@ -30,7 +30,7 @@ const ModalAdmin = ({ user, setUser }) => {
                 name: newName,
                 workstation: newWork
             };
-            await firebase.firestore().collection('users').doc(res.user.email).set(userInfo);
+            await db.collection('users').doc(res.user.email).set(userInfo);
             setUser([
                 ...user,
                 { ...userInfo, id: res.user.id }]);

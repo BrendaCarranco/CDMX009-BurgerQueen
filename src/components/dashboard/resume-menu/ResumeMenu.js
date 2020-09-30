@@ -44,7 +44,7 @@ const ResumeMenu = ({ data, deleteOrder, addOrder }) => {
       </div>
       <div className='card total'>
         <div>
-          <span className='total-price white-text'>TOTAL: $ {data.total}</span>
+          <span className='total-price white-text'>TOTAL: $ {data.total}.00</span>
         </div>
       </div>
     </Fragment >

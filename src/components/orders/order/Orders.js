@@ -1,6 +1,6 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import './orders.css';
-import { firebase } from '../../../firebase/firebaseConfig';
+import { db } from '../../../firebase/firebaseConfig';
 import editImage from '../images/edit.svg';
 
 import Chronometer from '../chronometer/Chronometer';
@@ -16,8 +16,7 @@ export function useOrder() {
     const currentDay = [date.getDate(), date.getMonth(), date.getFullYear()].join('/');
 
     useEffect(() => {
-        firebase
-            .firestore()
+        db
             .collection('orders')
             .where("date", "==", currentDay)
             .where("endingOrder", "==", 'no')
